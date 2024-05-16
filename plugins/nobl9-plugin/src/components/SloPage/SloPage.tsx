@@ -74,7 +74,9 @@ export const SloPage = () => {
 
   const { value, loading, error } =
     useAsync(async (): Promise<N9BackendResponse> => {
-      return await fetch(getBackendUrl(config, entity), {crendetials: "include"}).then(res => res.json());
+      return await fetch(getBackendUrl(config, entity), {
+        credentials: 'include',
+      }).then(res => res.json());
     }, [entity]);
 
   if (loading) {
